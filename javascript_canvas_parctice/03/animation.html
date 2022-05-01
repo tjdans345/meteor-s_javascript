@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .canvas {
+        background: #eee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>requestAnimationFrame</h1>
+    <canvas class="canvas" width="500" height="300"></canvas>
+
+    <script>
+      const canvas = document.querySelector(".canvas");
+      const context = canvas.getContext("2d");
+
+      let xPosition = 30;
+      let count = 0;
+      let cntNumber = 10;
+      let timerId;
+
+      // 리플로우 : 크기와 위치를 계산하는 과정
+      // 리페인트 : 계산한 크기와 위치를 그려주는 과정
+
+      const draw = () => {
+        count++;
+
+        if (count % 30 === 0) {
+          context.clearRect(0, 0, canvas.width, canvas.height);
+          context.beginPath();
+          context.arc(xPosition, 150, 30, 0, Math.PI * 2, false);
+          context.fill();
+          xPosition += cntNumber;
+        }
+        // if (xPosition > canvas.width - 30) {
+        //   cntNumber = -1.5;
+        // }
+        // if (xPosition < 0 + 30) {
+        //   cntNumber = 5;
+        // }
+        // if (xPosition < canvas.width) {
+        //   cntNumber = 1.5;
+        // }
+
+        // 1. 그릴 함수, 2.
+        // requestAnimationFrame(draw);
+      };
+
+      draw();
+    </script>
+  </body>
+</html>
