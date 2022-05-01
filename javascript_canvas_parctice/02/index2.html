@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      canvas {
+        background: #eee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas class="canvas" width="600" height="400"
+      >이 브라우저는 캔버스를 지원하지 않습니다.</canvas
+    >
+
+    <script>
+      // beginPath
+      // moveTo
+      // lineTo
+      // closePath
+      const canvas = document.querySelector(".canvas");
+      // 그림을 그릴때는 canvas의 context의 객체를 이용해서 작업을 한다.
+      const context = canvas.getContext("2d");
+
+      // beginPath()를 사용하여 선의 시작을 알려준다.
+      context.beginPath();
+      // 붓을 그위치로 옮기는 것
+      context.moveTo(100, 100);
+      // 실제로 선을 만든다.
+      context.lineTo(500, 100);
+      // stroke()를 사용해야 선이 나타난다.
+      context.stroke();
+      // 패스 작동이 끝날 때 닫아줘야한다.
+      context.closePath();
+    </script>
+  </body>
+</html>

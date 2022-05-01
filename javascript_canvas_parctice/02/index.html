@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      canvas {
+        background: #eee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas class="canvas" width="600" height="400"
+      >이 브라우저는 캔버스를 지원하지 않습니다.</canvas
+    >
+
+    <script>
+      // fillRect
+      // clearRect
+      // strokeRect
+      // 24, 25번째 줄은 기본 세팅이라고 생각하면된다
+      const canvas = document.querySelector(".canvas");
+      // 그림을 그릴때는 canvas의 context의 객체를 이용해서 작업을 한다.
+      const context = canvas.getContext("2d");
+
+      // canvas는 그림을 그리는 개념으로 생각을 해야한다
+      // 색을 설정하기 전에는 색이 입혀지지 않는다
+      context.fillRect(50, 50, 100, 100);
+
+      // fillStyle은 색상을 적해줄 때 사용 ( css에서 사용하는 색상 포맷 사용 가능)
+      // 지금 부터는 무조건 빨간색으로 도형이 그려진다
+      context.fillStyle = "red";
+
+      // 그릴 위치를 정해준다
+      // 캔버스 판에서 0 , 0 은 왼쪽 위 즉 초기 값이다.
+      // 100, 100 -> width , hegiht
+      context.fillRect(0, 0, 100, 100);
+
+      // context.fillRect(50, 50, 100, 100);
+      // context.fillStyle = "red";
+      // context.fillRect(0, 0, 100, 100);
+      // 지우개 역할 해당 위치의 해당 크기만 큼 지운다
+      context.clearRect(80, 80, 50, 50);
+      // 선 긋기
+      context.strokeRect(150, 150, 100, 100);
+    </script>
+  </body>
+</html>
