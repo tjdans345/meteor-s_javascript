@@ -32,30 +32,24 @@
       const draw = () => {
         count++;
 
-        // if (count % 30 === 0) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.beginPath();
         context.arc(xPosition, yPosition, 30, 0, Math.PI * 2, false);
         context.fill();
-        // }
-        // if (xPosition > canvas.width - 30) {
-        //   cntNumber = -1.5;
-        // }
-        // if (xPosition < 0 + 30) {
-        //   cntNumber = 5;
-        // }
-        // if (xPosition < canvas.width) {
-        //   cntNumber = 1.5;
-        // }
-
-        // if (xPosition === 200) {
-        //   cntNumber2 = -5;
-        // }
 
         xPosition += cntNumber;
-        // yPosition += cntNumber2;
-        // 1. 그릴 함수, 2.
-        // requestAnimationFrame(draw);
+
+        // if (xPosition >= canvas.width - 30) {
+        //   return;
+        // }
+
+        // 1. 그릴 함수
+        timerId = requestAnimationFrame(draw);
+
+        if (xPosition >= canvas.width - 30) {
+          // Animation Cancel 하는 방법
+          cancelAnimationFrame(timerId);
+        }
       };
 
       draw();
